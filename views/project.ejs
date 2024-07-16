@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="http://localhost:3001/css/index.css">
+    <title>Project</title>
+  </head>
+  <body>
+    <div id="nav">
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <a href="/"><h2>Dinny</h2></a>
+            <button id="menu"><i class="fa-solid fa-bars"></i></button>
+          </div>
+          <div class="ul-list" id="ul-list">
+            <li><a href="/">home</a></li>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <section id="project">
+      <div class="container">
+        <div class="project">
+
+          <% project.forEach((item) => { %>
+            <div class="project-card">
+              <div class="card-img">
+                <img
+                  src="http://localhost:3001/<%= item.image %>"
+                  alt=""
+                />
+              </div>
+  
+              <div class="title">
+                <h3><%= item.title %></h3>
+                <p><%= item.descripation %></p>
+              </div>
+  
+              <a
+                href="<%= item.url %>"
+                target="_blank"
+              >
+                <button>read more</button>
+              </a>
+            </div>
+          <% }) %>
+
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div class="container">
+        <div class="footer">
+          <div class="footer-content">
+            <h6>about</h6>
+            <p>
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts.
+            </p>
+            <div class="footer-icon">
+              <a href=""><i class="fa-brands fa-facebook"></i></a>
+              <a href=""><i class="fa-brands fa-instagram"></i></a>
+              <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+              <a href=""><i class="fa-brands fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-content">
+            <h6>company</h6>
+            <ul>
+              <li>reload digital india</li>
+              <li>reflect solution</li>
+              <li></li>
+            </ul>
+          </div>
+
+          <div class="footer-content">
+            <h6>Links</h6>
+            <ul>
+              <li>
+                <a href=""><i class="fa-solid fa-arrow-right-long"></i> home</a>
+              </li>
+              <li>
+                <a href=""
+                  ><i class="fa-solid fa-arrow-right-long"></i> about</a
+                >
+              </li>
+              <li>
+                <a href=""
+                  ><i class="fa-solid fa-arrow-right-long"></i> service</a
+                >
+              </li>
+              <li>
+                <a href=""
+                  ><i class="fa-solid fa-arrow-right-long"></i> project</a
+                >
+              </li>
+              <li>
+                <a href=""
+                  ><i class="fa-solid fa-arrow-right-long"></i> contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-content">
+            <h6>Services</h6>
+            <ul>
+              <li>web design</li>
+              <li>web design</li>
+              <li>web design</li>
+              <li>web design</li>
+              <li>web design</li>
+            </ul>
+          </div>
+          <div class="footer-content">
+            <h6>Have a Questions?</h6>
+            <span>
+              <p><i class="fa-solid fa-location-dot"></i></p>
+              <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
+            </span>
+
+            <span>
+              <p><i class="fa-solid fa-phone"></i></p>
+              <p>7206552028</p>
+            </span>
+
+            <span>
+              <p><i class="fa-solid fa-envelope"></i></p>
+              <p>dinny@gmail.com</p>
+            </span>
+          </div>
+        </div>
+        <div class="copy-right">
+          <p>
+            Copyright &copy;2024 All rights reserved | This template is made
+            with by Colorlib
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    const menu = document.getElementById("menu");
+    const ul_list = document.getElementById("ul-list");
+
+    menu.addEventListener("click", () => {
+      ul_list.classList.toggle("block_ul");
+    });
+
+    const nav = document.getElementById("nav");
+    nav.style.zIndex = "22";
+    let a = document.querySelectorAll("#nav a");
+
+    function colorWhite() {
+      a.forEach((item) => {
+        item.style.color = "white";
+      });
+    }
+
+    function colorBlack() {
+      a.forEach((item) => {
+        item.style.color = "white";
+      });
+    }
+
+    window.addEventListener("scroll", () => {
+      if (
+        document.body.scrollTop > 10 ||
+        document.documentElement.scrollTop > 10
+      ) {
+        nav.style.position = "fixed";
+        nav.style.backgroundColor = "blue";
+        nav.style.padding = "1.5rem";
+        nav.style.transition = ".5s";
+        colorWhite();
+        menu.style.backgroundColor = "white";
+        menu.style.color = "blue";
+      } else {
+        nav.style.position = "sticky";
+        nav.style.backgroundColor = "#524f4f";
+        colorBlack();
+        menu.style.backgroundColor = "blue";
+        menu.style.color = "white";
+      }
+    });
+  </script>
+</html>
